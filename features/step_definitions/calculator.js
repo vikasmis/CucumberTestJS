@@ -2,21 +2,21 @@
  * calculate step
  */
 
-module.exports = function() {
+module.exports = function () {
     var self = this;
 
-    this.Given(/^the input "([^"]*)"$/, function(input, callback) {
+    this.Given(/^the input "([^"]*)"$/, function (input) {
         self.expression = input;
-        callback();
+
     });
 
-    this.When(/^the calculator is run$/, function(callback) {
+    this.When(/^the calculator is run$/, function () {
         self.result = self.calculator.run(self.expression);
-        callback();
+
     });
 
-    this.Then(/^the output should be "([^"]*)"$/, function(output, callback) {
+    this.Then(/^the output should be "([^"]*)"$/, function (output) {
         self.expect(Number(self.result)).to.equal(Number(output));
-        callback();
+
     });
 }
